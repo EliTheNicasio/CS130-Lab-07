@@ -93,46 +93,54 @@ void application::draw_scene(float time_elapsed)
     glTranslatef(0, 1, 0);
     glColor3f(0, 0, 1); 
     draw_sphere(1);
-    glPopMatrix();
     
-    // Yellow Sphere 
-    float angular_speed=100;
-    glPushMatrix();
-    glRotatef(time_elapsed*angular_speed,0,1,0); 
-    glTranslatef(4,-1,0);
-    glColor3f(1, 1, 0);
-    draw_sphere(0.5);
-    glPopMatrix();
+        // Yellow Sphere 
+        float angular_speed=150;
+        glPushMatrix();
+        glRotatef(time_elapsed * -150,0,1,0); 
+        glTranslatef(2,0,0);
+        glColor3f(1, 1, 0);
+        draw_sphere(0.5);
+        glPopMatrix(); // Yellow Sphere
 
-    // Cyan Dodecahedron
-    glPushMatrix();
-    glTranslatef(8,0,0);
-    glScalef(0.5, 0.5, 0.5);
-    glColor3f(0, 1, 1);
-    draw_dodecadron();
-    glPopMatrix();
+        // Cyan Dodecahedron
+        glPushMatrix();
+        glRotatef(time_elapsed * 20,0,1,0);
+        glTranslatef(8,0,0);
+        glScalef(0.5, 0.5, 0.5);
+        glColor3f(0, 1, 1);
+        draw_dodecadron();
     
-    // Green Sphere
-    glPushMatrix();
-    glTranslatef(-2, 0, 0);
-    glColor3f(0, 1, 0);
-    draw_sphere(0.2);
-    glPopMatrix();
-        
-    // Purple Box
-    glPushMatrix();
-    glTranslatef(-5, 0, 0);
-    glColor3f(1, 0, 1);
-    draw_unit_cube();
-    glPopMatrix();
+            // Green Sphere
+            glPushMatrix();
+            glRotatef(time_elapsed * 300,1,0,0);
+            glTranslatef(0, 2, 0);
+            glColor3f(0, 1, 0);
+            draw_sphere(0.2);
+            glPopMatrix();
 
-    // Red Dodecahedron
-    glPushMatrix();
-    glRotatef(time_elapsed*350,0,1,0);
-    glTranslatef(1, 0, 0);
-    glColor3f(1, 0, 0);
-    draw_dodecadron();
-    glPopMatrix();
+            // Purple Box
+            glPushMatrix();
+            glRotatef(time_elapsed * 100, 0, 1, 0); 
+            glTranslatef(4, 0, 0);
+            glColor3f(1, 0, 1);
+            glScalef(.5, 2, .5);
+            draw_unit_cube();
+
+                // Red Dodecahedron
+                glPushMatrix();
+                glRotatef(time_elapsed*350,0,1,0);
+                glTranslatef(1, 0, 0);
+                glColor3f(1, 0, 0);
+                glScalef(.2,.2,.2);
+                draw_dodecadron();
+                glPopMatrix(); // Red Dod
+
+            glPopMatrix(); // Purple Box
+
+        glPopMatrix(); // Cyan Dod
+
+    glPopMatrix(); // Blue Sphere
 }
 
 // triggered each time the application needs to redraw
